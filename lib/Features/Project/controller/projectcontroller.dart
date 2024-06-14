@@ -3,23 +3,30 @@ import 'package:get/get.dart';
 
 class ProjectController extends GetxController {
   
+
+
+  var itemCount = 0.obs;
+   final bool _isExpanded = false;
+   List project = [];
+ 
+  add(){
   TextEditingController title = TextEditingController();
   TextEditingController techStack = TextEditingController();
   TextEditingController description = TextEditingController();
-
-  var itemCount = 1.obs;
-   bool _isExpanded = false;
-  List project = [];
- 
-  add(title,techStack,description,){
     bool isExpanded=_isExpanded;
     project.add({
-      "title":title,
-      "techStack":techStack,
-      "description":description,
+      "titlecontroller":title,
+      "techStackcontroller":techStack,
+      "descriptioncontroller":description,
       "_isExpanded":isExpanded
     });
-  
-    itemCount++;
+
   }
+
+  delete(index) {
+    itemCount--;
+    project.removeAt(index);
+  }
+
+ 
 }
